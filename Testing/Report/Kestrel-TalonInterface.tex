@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Talon Interface Signal %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
+{\Huge Test Name: \textbf{Talon Interface - Signal}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Setup Kestrel powered via USB and running Serial Demo interface. Read output of a given Talon port using oscilloscope (for cross talk) and using logic analyzer (for more general measurement). 
+
+Perform the following steps to test the isolation the signal lines of the Talon ports:
+\begin{itemize}
+\item Turn on power to just port being measured
+\item Set \texttt{SELx} pin for given port \textbf{HIGH} in order to connect UART to output
+\item Set \texttt{TALONx\_GPIOA} and \texttt{TALONx\_GPIOB} as \textbf{OUTPUT} and drive \textbf{LOW}
+\item Send serial message at 115200 baud rate. Ensure correct reception at output (correct conversion by logic analyzer) - \textbf{Test ALPHA}
+\item Set \texttt{TALONx\_GPIOA} and \texttt{TALONx\_GPIOB} as \textbf{OUTPUT} and drive \textbf{HIGH}
+\item Send serial message at 115200 baud rate. Ensure correct reception at output (correct conversion by logic analyzer) - \textbf{Test BETA}
+\item Set \texttt{SELx} pin for given port \textbf{LOW} in order to connect GPIO to output
+\item Set \texttt{TALONx\_GPIOA} and \texttt{TALONx\_GPIOB} as \textbf{INPUT} 
+\item Send serial message at 115200 baud rate. Measure cross talk from serial lines on output and absolute value of disturbed signal - \textbf{Measure 1}
+\item Set \texttt{TALONx\_GPIOA} as \textbf{OUTPUT} 
+\item Set PWM signal on \texttt{TALONx\_GPIOA}, confirm output correctness, measure cross talk on GPIOB output and absolute value of disturbed signal - \textbf{Test GAMMA}, \textbf{Measure 2}
+\item Set \texttt{TALONx\_GPIOB} as \textbf{OUTPUT}, set \texttt{TALONx\_GPIOA} as \textbf{INPUT} 
+\item Set PWM signal on \texttt{TALONx\_GPIOB}, confirm output correctness, measure cross talk on GPIOA output and absolute value of disturbed signal - \textbf{Test DELTA}, \textbf{Measure 3}
+\item Turn on power to all ports 
+\item Set \texttt{SELx} pin for given port \textbf{HIGH} in order to connect UART to output
+\item Set \texttt{TALONx\_GPIOA} and \texttt{TALONx\_GPIOB} as \textbf{OUTPUT} and drive \textbf{LOW}
+\item Send serial message at 115200 baud rate. Ensure correct reception at output (correct conversion by logic analyzer) - \textbf{Test EPSILON}
+\item Set \texttt{TALONx\_GPIOA} and \texttt{TALONx\_GPIOB} as \textbf{OUTPUT} and drive \textbf{HIGH}
+\item Send serial message at 115200 baud rate. Ensure correct reception at output (correct conversion by logic analyzer) - \textbf{Test ZETA}
+\item Turn power off on given port, leave on for all other ports
+\item Set \texttt{SELx} pin for given port \textbf{HIGH} in order to connect UART to output
+\item Send serial message at 115200 baud rate. Ensure lack of signal at output, measure output amplitude - \textbf{Test ETA}, \textbf{Measure 4}
+\item Connect logic analyzer to different port 
+\item Set \texttt{SELx} pin for this new port \textbf{HIGH} in order to connect UART to output
+\item Send serial message at 115200 baud rate. Ensure correct reception at output (correct conversion by logic analyzer) - \textbf{Test THETA}
+
+\end{itemize}
+
+%\\[5pt]
+{\Large Measurements: }\\
+\textbf{Signal Tests}
+\begin{itemize}
+\item \textbf{ALPHA - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{BETA - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{GAMMA - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{DELTA - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{EPSILON - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{ZETA - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{ETA - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{THETA - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{itemize}
+
+\textbf{Signal Measures}
+\begin{itemize}
+\item \textbf{Measure 1:} \rule{3cm}{0.15mm} dB \hspace{1cm} \rule{3cm}{0.15mm} mV
+\item \textbf{Measure 2:} \rule{3cm}{0.15mm} dB \hspace{1cm} \rule{3cm}{0.15mm} mV
+\item \textbf{Measure 3:} \rule{3cm}{0.15mm} dB \hspace{1cm} \rule{3cm}{0.15mm} mV
+\item \textbf{Measure 4:} \rule{3cm}{0.15mm} mV
+\end{itemize}
+
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]

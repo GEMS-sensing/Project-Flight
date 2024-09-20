@@ -1,0 +1,286 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent
+{\Huge Test Name: \textbf{General Tests - Data Storage}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}}\\ \textbf{SD,FRAM,RTC(EEPROM)} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Kestrel logger to computer using USB and have no other power source connected (as this is the most volatile anyway. 
+
+{\large \textbf{SD}:}
+Using the Serial Demo interface
+\begin{itemize}
+\item Install SD card (SanDisk Ultra 16GB Class 10, A1)
+\item Write to SD and measure the frequency of \texttt{SCK} line
+\item Power cycle system (by switching USB power on and off) 10 times - turning off power, then waiting 30 seconds, then turning power back on
+\item Read from SD, verify correct data
+\item Perform random Read/Write cycle 10 times (no power cycle) and verify results - must be no fails
+\item Shut off power to SD card by driving \texttt{3V3\_SD\_EN} \textbf{LOW}
+\item Verify state of this pin with DMM
+\item Read voltage on \texttt{3V3\_SD} rail, \textbf{ensure it is less than 100mV}
+\item Read card detection switch (verify pin state is \textbf{LOW})
+\item Push SD card to unlatch the card from the holder, \textbf{but do not fully remove the card}! Leave at the partially inserted position.
+\item Read card detection switch (verify pin state is \textbf{HIGH})
+\item Remove SD card fully
+\item Read card detection switch (verify pin state is \textbf{HIGH})
+\end{itemize}
+
+{\large \textbf{FRAM}:}
+Using the Serial Demo interface
+\begin{itemize}
+\item Write test data to FRAM and measure the frequency of \texttt{SCL} line
+\item Power cycle system (by switching USB power on and off) 10 times - turning off power, then waiting 30 seconds, then turning power back on
+\item Read from FRAM, verify correct data
+\item Perform random Read/Write cycle 10 times (no power cycle) and verify results - must be no fails
+\end{itemize}
+
+{\large \textbf{RTC}:}
+Using the Serial Demo interface
+\begin{itemize}
+\item Write test data to RTC EEPROM and measure the frequency of \texttt{SCL} line
+\item Power cycle system (by switching USB power on and off) 10 times - turning off power, then waiting 30 seconds, then turning power back on
+\item Read from EEPROM, verify correct data 
+\item Perform random Read/Write cycle 10 times (no power cycle) and verify results - must be no fails
+\item Read UUID from EEPROM
+\item Read RTC Clock frequency - should be 32.768kHz $\pm$ 100ppm at worst 
+\end{itemize}
+
+%\\[5pt]
+{\Large Measurements: }\\
+\begin{itemize}
+\item \textbf{SD Write - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{SD High Speed Write - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{SD Read - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{SD R/W Repeat - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{SD Power Off - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{SD Card Detect (inserted) - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{SD Card Detect (semi-removed) - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{SD Card Detect (removed) - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{FRAM Write - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{FRAM High Speed Write - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{FRAM Read - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{FRAM R/W Repeat - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{RTC Mem Write - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{RTC Mem Write Speed - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{RTC Mem Read - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{RTC Mem R/W Repeat - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{RTC UUID Read - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{RTC Clock Freq - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{itemize}
+{\Large Meter Readings: }\\
+\begin{itemize}
+\item \textbf{SD SCK Freq:} \rule{2cm}{0.15mm} MHz
+\item \textbf{3V3 SD Off Voltage:} \rule{3cm}{0.15mm} mV
+\item \textbf{FRAM SCL Freq:} \rule{2cm}{0.15mm} MHz
+\item \textbf{RTC Clock Freq:} \rule{2cm}{0.15mm} kHz \hspace{1cm} \textbf{Error:} \rule{2cm}{0.15mm} ppm
+\end{itemize}
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\noindent
+{\Huge Test Name: \textbf{General Tests - Human Interface}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Kestrel logger to computer using USB and have no other power source connected (as this is the most volatile anyway. 
+
+Perform the following tasks to confirm the operation of the Safe-Mode circuit as well as the physical button interface 
+\begin{itemize}
+\item Reset the logger (depress the reset button for 1 second, then release)
+\item Place the logger into listening mode (depress the mode button for $>\text{10}$ seconds, then release)
+\item Place the logger in safe mode using buttons (depress both \textbf{mode} and \textbf{reset} buttons, then release \textbf{reset} button. Hold \textbf{mode} button down until particle light blinks purple, then remove)
+\item Place the logger into DFU mode using buttons (depress both \textbf{mode} and \textbf{reset} buttons, then release \textbf{reset} button. Hold \textbf{mode} button down until particle light blinks yellow, then remove)
+\item Place the logger into factory reset mode using buttons (depress both \textbf{mode} and \textbf{reset} buttons, then release \textbf{reset} button. Hold \textbf{mode} button down until particle light blinks white, then remove)
+\item Reset the logger using magnetic wand (hold the wand against box until particle light goes out, then remove)
+\item Place the logger in safe mode using magnetic wand (hold the wand against the box until particle light blinks purple, then remove)
+\item Place the logger into DFU mode using magnetic wand (hold the wand against the box until particle light blinks yellow, then remove)
+\item Place the logger into factory reset mode using magnetic wand (hold the wand against the box until particle light blinks white, then remove)
+\end{itemize}
+
+Note: Magnet to be used - 1/4" x 1/16" neodymium disk, McMaster PN: 5862K141
+
+%\\[5pt]
+{\Large Measurements: }\\
+\begin{itemize}
+\item \textbf{Reset, Manual - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{Listening Mode - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{Safe Mode, Manual - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{DFU Mode, Manual - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{Factory Reset, Manual - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{Reset, Wand - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{Safe Mode, Wand - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{DFU Mode, Wand - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{Factory Reset Mode, Wand - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{itemize}
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\noindent
+{\Huge Test Name: \textbf{General Tests - On Board Control}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Kestrel logger to computer using USB and have no other power source connected (as this is the most volatile anyway). 
+
+\begin{itemize}
+\item Measure period of \textbf{PWR} LED blinking and record, ensure it is within specified range
+\item Measure period of \textbf{WDT} pulse, setup to capture time between pulses (use Serial Demo firmware so that \texttt{WDT\_DONE} is not trigger
+\item Pulse \texttt{WDT\_DONE} \textbf{HIGH} once every 60 minutes (can also be done using Serial Demo) and ensure that the WDT does not trigger when this is done 
+\item Confirm communication with IO expanders by toggling a pin on each and verifying with manual reading
+\item Set a given output pin on the IO expanders to be driven \textbf{LOW}, then reset the logger and confirm this pin returns to the default \textbf{INPUT\_PULLUP} state
+\item Configure IO expander to trigger an interrupt output for a given pin (easiest pins would likely be \texttt{SD\_CD} and \texttt{/FAULTx} for the given expanders. Then cause each of these pins to toggle and manually observe the state change of the interrupt line. 
+\item Record state of voltage rails when reset by WDT. Record the minimum values for these rails to ensure a correct power down 
+\end{itemize}
+
+
+%\\[5pt]
+{\Large Measurements: }\\
+\begin{itemize}
+\item \textbf{PWR LED Period Good - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{WDT Period Good - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{WDT Quiet - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{IO Exp Interface - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{IO Exp Reset - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{IO Exp Interrupt - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{itemize}
+
+{\Large Meter Readings: }\\
+\begin{itemize}
+\item \textbf{PWR LED Period:} \rule{2cm}{0.15mm} s
+\item \textbf{WDT Period:} \rule{2cm}{0.15mm} s
+\end{itemize}
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\noindent
+{\Huge Test Name: \textbf{General Tests - Power Switch}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Power Kestrel logger via power supply (3.7V) connected to battery port, use this to measure current into the system. Apply 6.5V to solar input to have external power applied as well. 
+
+\begin{itemize}
+\item Place switch in \textbf{OFF} position, measure current into logger, confirm system power. Measure all voltage rails
+\item Place switch in \textbf{TEST} position, measure voltage on \texttt{TEST} line, confirm system power
+\item Place switch in \textbf{ON} position, measure current into logger, confirm system power
+\end{itemize}
+
+
+%\\[5pt]
+{\Large Measurements: }\\
+\begin{itemize}
+\item \textbf{System power in \textbf{OFF} state - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{System power in \textbf{TEST} state - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{System power in \textbf{ON} state - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{itemize}
+
+{\Large Meter Readings: }\\
+\begin{itemize}
+\item \textbf{Off Current:} \rule{3cm}{0.15mm} $\mu A$
+\item \textbf{TEST Voltage:} \rule{3cm}{0.15mm} $mV$
+\item \textbf{SYS:} \rule{3cm}{0.15mm} $mV$
+\item \textbf{BAT\_CHG:} \rule{3cm}{0.15mm} $mV$
+\item \textbf{VBULK:} \rule{3cm}{0.15mm} $mV$
+\item \textbf{3V3\_BULK:} \rule{3cm}{0.15mm} $mV$
+\item \textbf{3V3\_AUX:} \rule{3cm}{0.15mm} $mV$
+\item \textbf{3V3\_CORE:} \rule{3cm}{0.15mm} $mV$
+\item \textbf{VPRIME:} \rule{3cm}{0.15mm} $mV$
+\item \textbf{VSOLAR:} \rule{3cm}{0.15mm} $mV$
+\end{itemize}
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cell Operation Limit %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+{\Huge Test Name: \textbf{Cell Power Limit}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+\textbf{Battery Input Test:}\\
+Connect a DC power supply to the battery input of Kestrel with a current limit set to 2A or greater. Set voltage to 2.7V, attempt to connect via cellular to cloud. Confirm operation.
+
+\textbf{USB Input Test:}\\
+Connect USB power only (USB 2.0 Port) and attempt to connect via cellular to cloud. Confirm operation. 
+
+{\Large Result:}\\
+
+\begin{itemize}
+\item \textbf{Battery Input Test - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{USB Input Test - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{itemize}
+
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Sleep Current %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+{\Huge Test Name: \textbf{Sleep Current Measure}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Run demo sleep firmware (\textbf{make sure to note version which was run}) and record sleep current from battery input (at 3.7V). This current must be less than \textbf{1mA} for device to pass.
+
+{\large Configuration State:}\\
+\begin{itemize}
+\item \texttt{3V3\_AUX\_EN} $\rightarrow$ \textbf{LOW}
+%\item Talon1 Power $\rightarrow$ \textbf{ON}
+\item All Talon Power $\rightarrow$ \textbf{OFF}
+\item \texttt{3V3\_SD\_EN} $\rightarrow$ \textbf{LOW}
+\item \texttt{LED\_EN} $\rightarrow$ \textbf{LOW}
+\item \texttt{CSA\_EN} $\rightarrow$ \textbf{LOW}
+\item FRAM $\rightarrow$ \textbf{Software Shutdown}
+\item Accel $\rightarrow$ \textbf{Software Shutdown}
+\item System Controller $\rightarrow$ \texttt{ULTRA\_LOW\_POWER}
+\end{itemize}
+
+{\Large Result:}\\
+
+\begin{itemize}
+\item \textbf{Sleep Current:} \rule{3cm}{0.15mm} $\mu A$
+\end{itemize}
+
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]

@@ -1,0 +1,312 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SDI12 Talon Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
+\setlength\parindent{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SDI12 Talon Basic Interface %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\Huge Test Name: \textbf{SDI-12 Talon - Apogee Interface Testing}}\\[20pt]
+{\Large DUT: \textbf{SDI-12 Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Fully test out the features of the Apogee specific sensor input
+
+{\large Actions:}
+\begin{itemize}
+\item Hard power cycle Talon, confirm \texttt{/DATA\_EN4} is \textbf{HIGH} by default
+\item Leave \texttt{/DATA\_EN4} \textbf{HIGH} and connect the other ports to data output
+\item Apply an erroneous signal to the Apogee port input (1kHz, 5V, square wave)
+\item Measure voltage present on enabled SDI-12 port, ensure this is sufficiently small
+\item Connect a sensor to an SDI-12 port, communicate with this sensor while erroneous input is connected, ensure there is no fault 
+\item Apply an analog voltage sweep to \texttt{DATA\_OUT4}, record the manual measure and the system measure along with error
+\begin{description}
+\item[V0] 0V
+\item[V1] 0.1V
+\item[V2] 0.25V
+\item[V3] 0.5V
+\item[V4] 1.0V
+\item[V5] 2.5V
+\item[V6] 3V
+\item[V7] 3.3V
+\item[V8] 4.5V
+\item[V9] 5.0V
+\end{description}
+\item Confirm ability to switch heater power on and off
+\item Load heater switch with 100mA load ($120\Omega$)
+\item Turn on heater switch
+\item Allow to run for 10 minutes and ensure no thermal shutoff
+
+\end{itemize}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item [Cross Talk Voltage] \rule{1.5cm}{0.15mm} mV
+\item[V0] DMM \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Reported \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[V1] DMM \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Reported \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[V2] DMM \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Reported \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[V3] DMM \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Reported \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[V4] DMM \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Reported \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[V5] DMM \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Reported \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[V6] DMM \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Reported \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[V7] DMM \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Reported \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[V8] DMM \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Reported \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[V9] DMM \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Reported \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \% 
+\end{description}
+
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SDI12 Talon Voltage Rail Measure %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{SDI-12 Talon - Voltage Rail Testing}}\\[20pt]
+{\Large DUT: \textbf{SDI-12 Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Test the performance of the switch mode converters on the SDI-12 Talon
+
+{\large Actions:}
+\begin{itemize}
+\item Switch on 5V rail
+\item Measure and record mean voltage and ripple voltage 
+\item Apply 100mA ($47\Omega$ resistor) load to the 5V (solder a resistor across capacitor C8)
+\item Switch on 5V rail
+\item Measure and record mean voltage and ripple voltage 
+\item Remove resistor load
+\item Switch on 12V rail
+\item Measure and record mean voltage and ripple voltage 
+\item Apply 500mA ($27\Omega$ resistor) load to 12V output port 
+\item Enable power on given output port
+\item Measure and record mean voltage and ripple voltage 
+\end{itemize}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item[5V, No Load] Mean \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Ripple \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[5V, 100mA Load] Mean \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Ripple \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[12V, No Load] Mean \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Ripple \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\item[12V, 500mA Load] Mean \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Ripple \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} Error \rule{1.5cm}{0.15mm} \%
+\end{description}
+
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Talon Bus Interface %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{SDI-12 Talon - Bus Reading}}\\[20pt]
+{\Large DUT: \textbf{SDI-12 Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Connect a set of sensors and perform the following operations. 
+
+{\large Isolation Mode: }
+\begin{itemize}
+\item Connect 4 sensors (1 Apogee, 3 non-Apogee) to the bus
+\item Have all sensors configured for \textbf{the same address}
+\item Select each port individually (enable data lines) and read data from device
+\item Confirm no fault
+\end{itemize}
+
+{\large Bus Mode: }
+\begin{itemize}
+\item Connect 4 sensors (1 Apogee, 3 non-Apogee) to the bus
+\item Have all sensors configured for \textbf{different addresses}
+\item Read from each sensor, while all are connected to the bus
+\item Confirm no fault
+\end{itemize}
+
+{\large Partial Bus Mode: }
+\begin{itemize}
+\item Connect 4 sensors (1 Apogee, 3 non-Apogee) to the bus
+\item Have all sensors configured for \textbf{different addresses}
+\item Disable a single sensor (disable data line), then read from the rest of the connected sensors (cycling through which one is disconnected)
+\item Confirm no fault
+\end{itemize}
+
+{\large Bus Fault: }
+\begin{itemize}
+\item Connect 3 sensors (1 Apogee, 2 non-Apogee) to the bus
+\item Have all sensors configured for \textbf{different addresses}
+\item Disable (data enable) the port with the disconnected sensor
+\item Apply the following faults and confirm data is still able to be read from the remaining sensors 
+\begin{itemize}
+\item Connect data line to GND
+\item Connect data line to 5V
+\item Connect data line to 12V (also ensure voltage applied to buffer, \texttt{DATA\_OUT\_PROTECx}, does not exceed 5V
+\end{itemize}
+\item Confirm no fault
+\end{itemize}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item [Isolation Mode] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Bus Mode] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Partial Bus Mode] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Bus Fault] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% GENERAL TALON TESTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Current Limit Testing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{SDI-12 Talon - Current Limit Fault}}\\[20pt]
+{\Large DUT: \textbf{SDI-12 Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Power Kestrel via power supply connected to battery input (3.7V, 3A limit)
+
+Apply a given load to the output and perform the set of actions and ensure all stages are passed 
+
+In order to pass, all trip times must be less than \textbf{4ms} (minimum trip time for the Kestrel power switch)
+
+{\large Load Condition:}
+\begin{itemize}
+\item Excess Load - 1.25x max load (0.625A, approximately $15\Omega$ for 12V bus)
+\item Dead short - $<0.1\Omega$
+\end{itemize}
+
+{\large Actions: }
+\begin{itemize}
+\item Apply load
+\begin{description}
+\item [Case A] Connect load to disabled port, enable port 
+\item [Case B] Enable port, connect load
+\end{description}
+\item Measure time to trip
+\item Confirm output disconnection 
+\item Remove load
+\item Confirm output latch
+\item Confirm fault flag
+\end{itemize}
+
+\textbf{Repeat for fault present at enable and fault applied to line}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item [Excess Load, Case A] Time to Trip\footnote{These times are software actuated trip times \label{footnote 1}} \rule{1.5cm}{0.15mm} ms \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Excess Load, Case B] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Dead Short, Case A] Time to Trip\textsuperscript{\ref{footnote 1}} \rule{1.5cm}{0.15mm} ms \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Dead Short, Case B] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Current Limit Testing Max %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{SDI-12 Talon - Current Limit Max}}\\[20pt]
+{\Large DUT: \textbf{SDI-12 Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Apply the max hold current (0.5A) to a single output port and confirm the system does not trip and still functions correctly 
+
+Connect a load resistor (3.3V - $6.8\Omega$, 12V - $27\Omega$) to the port output and enable output, confirm stable output, run for 10 minutes and confirm no thermal overload in that time. 
+
+Measure voltage applied to load
+
+Repeat process with "half load" as well (3.3V - $13.3\Omega$, 12V - $47\Omega$)
+
+{\Large \textbf{Measurements:}}\\
+\textbf{Full Load} \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\begin{description}
+\item [Load Voltage, Start] -  \rule{1.5cm}{0.15mm}V 
+\item [Load Voltage, End] -  \rule{1.5cm}{0.15mm}V 
+\end{description}
+
+\textbf{Half Load} \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\begin{description}
+\item [Load Voltage, Start] -  \rule{1.5cm}{0.15mm}V 
+\item [Load Voltage, End] -  \rule{1.5cm}{0.15mm}V 
+\end{description}
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Talon General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{SDI-12 Talon - General Tests}}\\[20pt]
+{\Large DUT: \textbf{SDI-12 Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm} \\[40pt]
+{\Large Conditions: } \\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+\begin{description}
+\item [EEPROM] Write to EEPROM, toggle power 10 times, read from EEPROM and confirm data is correct 
+\item [Bus Voltage Measurement] Measure all bus voltages, confirm with DMM to be within 5\% of actual value. Apply load of about $1k\Omega$ to have a reasonable current to measure.
+\item [IO Expanders] Verify correct I2C address of devices (should be 0x22)
+\item [Position Detect Switch] Verify switch trips when placed in lower position in box, confirm switch does not trip when in upper position 
+\item [Sense EN] Disable \texttt{SENSE\_EN} line, confirm \texttt{3V3\_SENSE} is shutdown. Force enable outputs, confirm power is present at output. 
+\end{description}
+
+
+
+{\Large \textbf{Measurements:}}\\[5pt]
+\begin{description}
+\item [EEPROM] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Bus Voltage Measurement] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [IO Expanders] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Position Detect Switch] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Sense EN] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+\vfill
+
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]

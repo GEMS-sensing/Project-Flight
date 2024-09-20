@@ -1,0 +1,685 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\noindent
+{\Huge Test Name: \textbf{Kestrel - On Board Control}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Kestrel logger to computer using USB and have no other power source connected (as this is the most volatile anyway). 
+
+\begin{itemize}
+%\item Measure period of \textbf{PWR} LED blinking and record, ensure it is within specified range
+%\item Measure period of \textbf{WDT} pulse, setup to capture time between pulses (use Serial Demo firmware so that \texttt{WDT\_DONE} is not trigger
+%\item Pulse \texttt{WDT\_DONE} \textbf{HIGH} once every 60 minutes (can also be done using Serial Demo) and ensure that the WDT does not trigger when this is done 
+\item Confirm communication with IO expanders by toggling a pin on each and verifying with manual reading
+%\item Set a given output pin on the IO expanders to be driven \textbf{LOW}, then reset the logger and confirm this pin returns to the default \textbf{INPUT\_PULLUP} state
+\item Configure IO expander to trigger an interrupt output for a given pin (easiest pins would likely be \texttt{SD\_CD} and \texttt{/FAULTx} for the given expanders. Then cause each of these pins to toggle and manually observe the state change of the interrupt line. 
+%\item Record state of voltage rails when reset by WDT. Record the minimum values for these rails to ensure a correct power down 
+\end{itemize}
+
+
+%\\[5pt]
+{\Large Measurements: }\\
+\begin{itemize}
+%\item \textbf{PWR LED Period Good - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+%\item \textbf{WDT Period Good - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+%\item \textbf{WDT Quiet - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{IO Exp Interface - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+%\item \textbf{IO Exp Reset - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item \textbf{IO Exp Interrupt - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{itemize}
+
+%{\Large Meter Readings: }\\
+%\begin{itemize}
+%\item \textbf{PWR LED Period:} \rule{2cm}{0.15mm} s
+%\item \textbf{WDT Period:} \rule{2cm}{0.15mm} s
+%\end{itemize}
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Sleep Current %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+{\Huge Test Name: \textbf{Kestrel - Sleep Current Measure}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Run demo sleep firmware (\textbf{make sure to note version which was run}) and record sleep current from battery input (at 3.7V). This current must be less than \textbf{1mA} for device to pass.
+
+{\large Configuration State:}\\
+\begin{itemize}
+\item \texttt{3V3\_AUX\_EN} $\rightarrow$ \textbf{LOW}
+%\item Talon1 Power $\rightarrow$ \textbf{ON}
+\item All Talon Power $\rightarrow$ \textbf{OFF}
+\item \texttt{3V3\_SD\_EN} $\rightarrow$ \textbf{LOW}
+\item \texttt{LED\_EN} $\rightarrow$ \textbf{LOW}
+\item \texttt{CSA\_EN} $\rightarrow$ \textbf{LOW}
+\item FRAM $\rightarrow$ \textbf{Software Shutdown}
+\item Accel $\rightarrow$ \textbf{Software Shutdown}
+\item System Controller $\rightarrow$ \texttt{ULTRA\_LOW\_POWER}
+\end{itemize}
+
+{\Large Result:}\\
+
+\begin{itemize}
+\item \textbf{Sleep Current:} \rule{3cm}{0.15mm} $\mu A$
+\end{itemize}
+
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% AUX Talon Analog Interface %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+{\Huge Test Name: \textbf{Aux Talon - Analog}}\\[20pt]
+{\Large DUT: \textbf{Aux Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm} \\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Configure the ADC to use $2/3$ gain value ($\pm 6.144V$) for max range and worst case error. Use default rate of 128 sps for data rate, no averaging. 
+
+Connect a controllable power supply to a single analog input on the Aux Talon via a \textbf{5m} cable. Place a specified resistor in series with the power supply output to provide the desired input impedance. All manual measurements are to be made at the Talon end of the cable. DMM measurements should be made by short wires soldered to the filter caps. 
+
+For each voltage tested, apply the following conditions:
+\begin{itemize}
+\item Floating - Discharge MOSFET is switched off
+\item Discharged - Discharge MOSFET is switched on for 250ms, then switched off for 1ms before reading
+\item Loaded - Discharge MOSFET is switched on during measurement 
+\end{itemize}
+
+This process should be repeated for input impedances: $0\Omega$, $1k\Omega$, $10k\Omega$, $100k\Omega$
+
+Voltages to apply:
+\begin{description}
+\item [Measure 1] 0V
+\item [Measure 2] 0.25V
+\item [Measure 3] 2.5V
+\item [Measure 4] 5.0V
+\end{description}
+
+Perform the following steps to test the analog signal measurement of the Aux Talon:
+\begin{itemize}
+\item Apply a given voltage to the input
+\item Measure voltage with the DMM, record 
+\item Measure voltage with the Aux Talon interface, record 
+\item Measure on board voltage ref with Aux Talon interface, record 
+%\item Manually correct Aux Talon voltage measurement, record 
+%\item Measure voltage of non-connected ports with Aux Talon interface, record 
+
+\end{itemize}
+
+{\Large \textbf{Measurements:}}\\
+\textbf{Source Impedance = $0\Omega$, input mode = Floating}
+\begin{itemize}
+\item \textbf{Measure \# - Samples:} DMM Val [mV], Talon Val [mV], Error [mV], Error [\%]
+%\item \textbf{Measure \# - Crossover:} Port1 [mV], Port2 [mV], Port3 [mV] (Write N/A for selected port)
+\item \textbf{Measure 1:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 2:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 3:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 4:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\end{itemize}
+
+\textbf{Source Impedance = $1k\Omega$, input mode = Floating}
+\begin{itemize}
+\item \textbf{Measure \# - Samples:} DMM Val [mV], Talon Val [mV], Error [mV], Error [\%]
+%\item \textbf{Measure \# - Crossover:} Port1 [mV], Port2 [mV], Port3 [mV] (Write N/A for selected port)
+\item \textbf{Measure 1:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 2:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 3:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 4:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\end{itemize}
+
+\textbf{Source Impedance = $10k\Omega$, input mode = Floating}
+\begin{itemize}
+\item \textbf{Measure \# - Samples:} DMM Val [mV], Talon Val [mV], Error [mV], Error [\%]
+%\item \textbf{Measure \# - Crossover:} Port1 [mV], Port2 [mV], Port3 [mV] (Write N/A for selected port)
+\item \textbf{Measure 1:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 2:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 3:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 4:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\end{itemize}
+
+\textbf{Source Impedance = $100k\Omega$, input mode = Floating}
+\begin{itemize}
+\item \textbf{Measure \# - Samples:} DMM Val [mV], Talon Val [mV], Error [mV], Error [\%]
+%\item \textbf{Measure \# - Crossover:} Port1 [mV], Port2 [mV], Port3 [mV] (Write N/A for selected port)
+\item \textbf{Measure 1:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 2:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 3:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{Measure 4:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\end{itemize}
+
+\textbf{Source Impedance = $0\Omega$}
+\begin{itemize}
+\item \textbf{Measure \# - Samples:} Floating [mV], Discharged [mV], Loaded [mV]
+%\item \textbf{Measure \# - Crossover:} Port1 [mV], Port2 [mV], Port3 [mV] (Write N/A for selected port)
+\item \textbf{Measure 1:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 2:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 3:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 4:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\end{itemize}
+
+\textbf{Source Impedance = $1k\Omega$}
+\begin{itemize}
+\item \textbf{Measure \# - Samples:} Floating [mV], Discharged [mV], Loaded [mV]
+%\item \textbf{Measure \# - Crossover:} Port1 [mV], Port2 [mV], Port3 [mV] (Write N/A for selected port)
+\item \textbf{Measure 1:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 2:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 3:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 4:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\end{itemize}
+
+\textbf{Source Impedance = $10k\Omega$}
+\begin{itemize}
+\item \textbf{Measure \# - Samples:} Floating [mV], Discharged [mV], Loaded [mV]
+%\item \textbf{Measure \# - Crossover:} Port1 [mV], Port2 [mV], Port3 [mV] (Write N/A for selected port)
+\item \textbf{Measure 1:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 2:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 3:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 4:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\end{itemize}
+
+\textbf{Source Impedance = $100k\Omega$}
+\begin{itemize}
+\item \textbf{Measure \# - Samples:} Floating [mV], Discharged [mV], Loaded [mV]
+%\item \textbf{Measure \# - Crossover:} Port1 [mV], Port2 [mV], Port3 [mV] (Write N/A for selected port)
+\item \textbf{Measure 1:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 2:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 3:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\item \textbf{Measure 4:} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \rule{1.5cm}{0.15mm} mV \%
+\end{itemize}
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% AUX Talon Pulse Interface - Average %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{Aux Talon - Pulse}}\\[20pt]
+{\Large DUT: \textbf{Aux Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm} \\[40pt]
+{\Large Conditions: }\\[5pt] \textbf{Port Voltage Selected}\rule{1cm}{0.15mm} \\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. \textbf{Ensure both \texttt{Dx\_SENSE} and \texttt{ODx} lines are configured as inputs}.
+
+Connect the various sensor configurations to the input of a given port on the Aux Talon. Run the test for the given period and measure the ground truth value using a DMM in frequency averaging mode (reset simultaneous to begin of sample). 
+
+For tests not using a sensor cable, connection should be made via a \textbf{5m} unshielded, 22 AWG cable.
+
+
+Read values from the Talon via the Serial Demo interface. Use the time stamping in the serial monitor for timing. For each measurement, confirm a good wave form via oscilloscope at the Talon end of the cable.
+
+Wind sensors should be driven via forced airflow to the best approximation of the desired frequency. 
+
+For square wave on OD input, use a 2N7002 transistor to drive the open drain line from the function generator input. 
+
+Process should be repeated for each port 
+
+\textbf{Measurements must be within 2.5\% to pass}, except for all signals over 1kHz, these must only be within 5\% for a pass. \\
+
+{\large \textbf{POD Inputs:}}
+\begin{description}
+%\DrawEnumitemLabel
+\item [OD1 -] Wind Speed, Hall Effect - 25Hz, 5 min
+\item [OD2 -]  Wind Speed, Reed - 25Hz, 5 min
+\item [OD3 -] Wind Speed, Reed - 0Hz, 5 min (confirm no error pulses)
+\item [OD4 -] Square Wave (3.3V) - 1kHz, 60 sec
+\end{description}
+
+{\large \textbf{Digital Inputs:}}
+\begin{description}
+\item [D1 -] Square Wave (1.8V) - 100Hz, 5 min
+\item [D2 -] Square Wave (3.3V) - 100Hz, 5 min
+\item [D3 -] Square Wave (5V) - 100Hz, 5 min
+\item [D4 -] Square Wave (3.3V) - 1kHz, 60 sec
+\end{description}
+
+Perform the following steps to test the analog signal measurement of the Aux Talon:
+\begin{itemize}
+\item Apply a given signal to the given input
+\item Restart DMM frequency count
+\item Restart count with Aux Talon interface
+\item Wait given time
+\item Measure frequency from DMM, record 
+\item Measure pulses and delta time from Aux Talon, record
+\item Calculate Aux Talon frequency and error
+
+\end{itemize}
+
+{\Large \textbf{Measurements:}}
+\begin{itemize}
+\item \textbf{Measure:} DMM Val [Hz], Talon Val [Count], Talon Val [ms], Talon Val [Hz], Error [\%]
+%\item \textbf{Measure \# - Crossover:} Port1 [mV], Port2 [mV], Port3 [mV] (Write N/A for selected port)
+\item \textbf{OD1:} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} Count \hspace{0.5cm} \rule{1.5cm}{0.15mm} ms \hspace{0.5cm} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{OD2:} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} Count \hspace{0.5cm} \rule{1.5cm}{0.15mm} ms \hspace{0.5cm} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{OD3:} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} Count \hspace{0.5cm} \rule{1.5cm}{0.15mm} ms \hspace{0.5cm} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{OD4:} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} Count \hspace{0.5cm} \rule{1.5cm}{0.15mm} ms \hspace{0.5cm} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{D1:} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} Count \hspace{0.5cm} \rule{1.5cm}{0.15mm} ms \hspace{0.5cm} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{D2:} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} Count \hspace{0.5cm} \rule{1.5cm}{0.15mm} ms \hspace{0.5cm} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{D3:} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} Count \hspace{0.5cm} \rule{1.5cm}{0.15mm} ms \hspace{0.5cm} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\item \textbf{D4:} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} Count \hspace{0.5cm} \rule{1.5cm}{0.15mm} ms \hspace{0.5cm} \rule{1.5cm}{0.15mm} Hz \hspace{0.5cm} \rule{1.5cm}{0.15mm} \%
+\end{itemize}
+
+\vfill
+
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% AUX Talon General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{Aux Talon - General Tests}}\\[20pt]
+{\Large DUT: \textbf{Aux Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm} \\[40pt]
+{\Large Conditions: } \\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+\begin{description}
+%\item [5V EN Test] Toggle \texttt{5V\_EN} line, confirm 5V line shuts down, record on and off voltage. \textbf{Wait 60 seconds for measure}.
+%\item [Max Digital Frequency] Connect oscilloscope to \texttt{OUTx} line of given port, apply function generator input to digital input. Set duty cycle to 50\% and increase frequency until pulse is not registered on \texttt{OUTx} line, record maximum frequency. Must be greater than 1kHz.
+%\item [Max OD Frequency] Connect oscilloscope to \texttt{OUTx} line of given port, apply function generator input (using 2N7002 drive circuit and internal pullup) to OD input. Set duty cycle to 50\% and increase frequency until pulse is not registered on \texttt{OUTx} line, record maximum frequency. Must be greater than 100Hz.
+%\item [Min Digital Pulse Width] Connect oscilloscope to \texttt{OUTx} line of given port, apply function generator input to digital input. Set frequency to \textbf{1kHz} and pulse width to $500\mu \text{s}$ (50\% duty cycle). Reduce pulse width until pulse is not registered on \texttt{OUTx} line, record minim pulse width. 
+%\item [Min OD Pulse Width] Connect oscilloscope to \texttt{OUTx} line of given port, apply function generator input (using 2N7002 drive circuit and internal pullup) to OD input. Set frequency to \textbf{100Hz} and pulse width to 5ms (50\% duty cycle). Reduce pulse width until pulse is not registered on \texttt{OUTx} line, record minim pulse width. 
+\item [Pulse Pass Through] Configure one of the pulse lines to act as an interrupt input, confirm that a pulse on the input results in triggering of a pulse on the interrupt line. 
+\item [Overflow] Configure one of the overflow lines (\texttt{/OVFx}) to act as an interrupt, clear the counters, apply a function generator input (1kHz) and wait for interrupt output. Confirm interrupt output occurs and confirm expected time within 2.5\%
+\item [Bus Voltage Measurement] Measure all bus voltages, confirm with DMM to be within 5\% of actual value. Run with 3.3V and 5V selections of ports at the same time. 
+\item [Multi-port Input] Apply a 25Hz pulse input to digital line of a given port for 60 seconds. During this period, pulse an open drain line on a different port about 12 times. Confirm both readings are measured correctly (within 2.5\% of expected).
+\item [Over Voltage Input] Apply a 5V square wave (100Hz) for 60 seconds to a digital input which is configured at 3.3V. Confirm correct pulse count and run test for another 60 seconds with 3.3V pulse and confirm correct count to ensure damage was not done to part of the system. 
+\item [Reed Switch Input, Slow] Drive a reed switch at a cycle of 6 pulses per minute (one pulse every 10 seconds) and confirm correct count (within 2.5\%) after 60 seconds
+%\item [Reed Switch Input, Fast] Drive a reed switch at about 25Hz and confirm correct count (within 2.5\%) after 60 seconds
+\item [EMI Fault] Connect 30m of cable with reed switch on end to open drain input of port. Trigger EMI discharge (chair discharge) and confirm no tip event is recorded. Repeat 5 times and ensure no tips are recorded any time. \textbf{Discharge should occur at least 1m away from system}.
+\end{description}
+
+
+
+{\Large \textbf{Measurements:}}\\[5pt]
+\begin{description}
+%\item [5V EN Test] - Von: \rule{1cm}{0.15mm} mV \hspace{0.5cm} Voff: \rule{1cm}{0.15mm}mV \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+%\item [Max Digital Frequency] - Frequency: \rule{1cm}{0.15mm}kHz \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+%\item [Max OD Frequency] - Frequency: \rule{1cm}{0.15mm}kHz \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+%\item [Min Digital Pulse Width] - Pulse Width: \rule{1cm}{0.15mm}$\mu s$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+%\item [Min OD Pulse Width] - Pulse Width: \rule{1cm}{0.15mm}$\mu s$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Pulse Pass Through] - \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Overflow] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Bus Voltage Measurement] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Multi-port Input] - PortA Error: \rule{1cm}{0.15mm} \% \hspace{0.5cm} PortB Error: \rule{1cm}{0.15mm} \% \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Over Voltage Input] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Reed Switch Input, Slow] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+%\item [Reed Switch Input, Fast] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [EMI Fault] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+\vfill
+
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Talon Bus Interface %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{I2C Talon - Bus Reading}}\\[20pt]
+{\Large DUT: \textbf{I2C Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\
+\textbf{Haar Primal v}\rule{1cm}{0.15mm}\\
+\textbf{Hedorah NDIR v}\rule{1cm}{0.15mm}\\
+\textbf{Hedorah v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Connect a set of sensors and perform the following operations. Make the connection using \textbf{1m cable}.
+
+Use fast mode I2C (400kHz)
+
+{\large Sensor Set:}
+\begin{itemize}
+\item Haar
+\item Haar, Alt Address
+\item Hedorah-NDIR
+\item Hedorah
+\end{itemize}
+
+{\large Actions: }
+\begin{itemize}
+\item Connect to all ports
+\item Read data from each device, confirm no fault, verify waveform on output side 
+\item Measure rise and fall time on bus at sensor (far end of cable)
+\end{itemize}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item [Rise Time] \rule{1cm}{0.15mm} $\mu s$
+\item [Fall Time] \rule{1cm}{0.15mm} $\mu s$
+\item [Freq] \rule{1.5cm}{0.15mm} kHz
+\end{description}
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Talon General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{I2C Talon - General Tests}}\\[20pt]
+{\Large DUT: \textbf{I2C Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm} \\[40pt]
+{\Large Conditions: } \\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+\begin{description}
+%\item [EEPROM] Write to EEPROM, toggle power 10 times, read from EEPROM and confirm data is correct 
+\item [Bus Voltage Measurement] Measure all bus voltages, confirm with DMM to be within 5\% of actual value. Apply load of about $1k\Omega$ to have a reasonable current to measure.
+\item [IO Expanders] Verify correct I2C address of devices (should be 0x22)
+\item [Position Detect Switch] Verify switch trips when placed in lower position in box, confirm switch does not trip when in upper position 
+%\item [Sense EN] Disable \texttt{SENSE\_EN} line, confirm \texttt{3V3\_SENSE} is shutdown. Force enable outputs, confirm power is present at output. 
+\end{description}
+
+
+
+{\Large \textbf{Measurements:}}\\[5pt]
+\begin{description}
+%\item [EEPROM] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Bus Voltage Measurement] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [IO Expanders] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Position Detect Switch] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+%\item [Sense EN] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+\vfill
+
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Talon Loopback Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{I2C Talon - Loopback Test}}\\[20pt]
+{\Large DUT: \textbf{I2C Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\
+\textbf{Haar Primal v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Connect a Haar sensor to an open and enabled port. First perform a test with all other ports open circuit with and without loopback enabled. Then apply the following conditions of faults to an enabled port and attempt to communicate with loopback enabled and disabled. 
+
+{\large Conditions: }
+\begin{description}
+\item SDA shorted to 3.3V
+\item SCL shorted to 3.3V
+\item SDA shorted to GND
+\item SCL shorted to GND
+\end{description}
+
+{\Large Results: }\\
+{\large Floating Ports}
+\begin{description}
+\item[Loopback Enabled] - \hfill 0x22: \rule{1cm}{0.15mm} \hspace{0.5cm} 0x44: \rule{1cm}{0.15mm}
+\item[Loopback Disabled] - \hfill 0x22: \rule{1cm}{0.15mm} \hspace{0.5cm} 0x44: \rule{1cm}{0.15mm}
+\end{description}
+
+{\large Loopback Enabled}
+\begin{description}
+\item[SDA shorted to 3.3V] - \hfill 0x22: \rule{1cm}{0.15mm} \hspace{0.5cm} 0x44: \rule{1cm}{0.15mm}
+\item[SCL shorted to 3.3V] - \hfill 0x22: \rule{1cm}{0.15mm} \hspace{0.5cm} 0x44: \rule{1cm}{0.15mm}
+\item[SDA shorted to GND] - \hfill 0x22: \rule{1cm}{0.15mm} \hspace{0.5cm} 0x44: \rule{1cm}{0.15mm}
+\item[SCL shorted to GND] - \hfill 0x22: \rule{1cm}{0.15mm} \hspace{0.5cm} 0x44: \rule{1cm}{0.15mm}
+\end{description}
+
+{\large Loopback Disabled}
+\begin{description}
+\item[SDA shorted to 3.3V] - \hfill 0x22: \rule{1cm}{0.15mm} \hspace{0.5cm} 0x44: \rule{1cm}{0.15mm}
+\item[SCL shorted to 3.3V] - \hfill 0x22: \rule{1cm}{0.15mm} \hspace{0.5cm} 0x44: \rule{1cm}{0.15mm}
+\item[SDA shorted to GND] - \hfill 0x22: \rule{1cm}{0.15mm} \hspace{0.5cm} 0x44: \rule{1cm}{0.15mm}
+\item[SCL shorted to GND] - \hfill 0x22: \rule{1cm}{0.15mm} \hspace{0.5cm} 0x44: \rule{1cm}{0.15mm}
+\end{description}
+
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% GENERAL TALON TESTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Current Limit Testing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{I2C Talon - Current Limit Fault}}\\[20pt]
+{\Large DUT: \textbf{I2C Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Apply a given load to the output and perform the set of actions and ensure all stages are passed 
+
+{\large Load Condition:}
+\begin{itemize}
+\item Excess Load - 1.25x max load (0.625A, approximately $5\Omega$ for 3.3V bus)
+\item Dead short - $<0.1\Omega$
+\end{itemize}
+
+{\large Actions: }
+\begin{itemize}
+\item Apply load
+\begin{description}
+\item [Case A] Connect load to disabled port, enable port 
+\item [Case B] Enable port, connect load
+\end{description}
+\item Measure time to trip
+\item Confirm output disconnection 
+\item Remove load
+\item Confirm output latch
+\item Confirm fault flag
+\end{itemize}
+
+\textbf{Repeat for fault present at enable and fault applied to line}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item [Excess Load, Case A] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Excess Load, Case B] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Dead Short, Case A] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Dead Short, Case B] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SDI-12 Talon Bus Interface %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{SDI-12 Talon - Bus Reading}}\\[20pt]
+{\Large DUT: \textbf{SDI-12 Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Connect a set of sensors and perform the following operations. 
+
+
+{\large Bus Mode: }
+\begin{itemize}
+\item Connect 4 sensors (1 Apogee, 3 non-Apogee) to the bus
+\item Have all sensors configured for \textbf{different addresses}
+\item Read from each sensor, while all are connected to the bus
+\item Confirm no fault
+\end{itemize}
+
+{\large Loopback Mode: }
+\begin{itemize}
+\item Connect 3 sensors (1 Apogee, 2 non-Apogee) to the bus
+\item Have all sensors configured for \textbf{different addresses}
+\item Read from each sensor, while all are connected to the bus
+\item Confirm no fault
+\item Enable loopback, read result
+\item Disable loopback
+\item Fault extra port (short data to GND)
+\item Read from each sensor, while all are connected to the bus (confirm expected fault)
+\item Enable loopback, read result (confirm loopback still reads)
+\end{itemize}
+
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+%\item [Isolation Mode] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Bus Mode] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Loopback Mode] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+%\item [Partial Bus Mode] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+%\item [Bus Fault] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Current Limit Testing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{SDI-12 Talon - Current Limit Fault}}\\[20pt]
+{\Large DUT: \textbf{SDI-12 Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Power Kestrel via power supply connected to battery input (3.7V, 3A limit)
+
+Apply a given load to the output and perform the set of actions and ensure all stages are passed 
+
+In order to pass, all trip times must be less than \textbf{4ms} (minimum trip time for the Kestrel power switch)
+
+{\large Load Condition:}
+\begin{itemize}
+\item Excess Load - 1.25x max load (0.625A, approximately $15\Omega$ for 12V bus)
+\item Dead short - $<0.1\Omega$
+\end{itemize}
+
+{\large Actions: }
+\begin{itemize}
+\item Apply load
+\begin{description}
+\item [Case A] Connect load to disabled port, enable port 
+\item [Case B] Enable port, connect load
+\end{description}
+\item Measure time to trip
+\item Confirm output disconnection 
+\item Remove load
+\item Confirm output latch
+\item Confirm fault flag
+\end{itemize}
+
+\textbf{Repeat for fault present at enable and fault applied to line}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item [Excess Load, Case A] Time to Trip\footnote{These times are software actuated trip times \label{footnote 1}} \rule{1.5cm}{0.15mm} ms \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Excess Load, Case B] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Dead Short, Case A] Time to Trip\textsuperscript{\ref{footnote 1}} \rule{1.5cm}{0.15mm} ms \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Dead Short, Case B] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Talon General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{SDI-12 Talon - General Tests}}\\[20pt]
+{\Large DUT: \textbf{SDI-12 Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm} \\[40pt]
+{\Large Conditions: } \\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+\begin{description}
+%\item [EEPROM] Write to EEPROM, toggle power 10 times, read from EEPROM and confirm data is correct 
+\item [Bus Voltage Measurement] Measure all bus voltages, confirm with DMM to be within 5\% of actual value. Apply load of about $1k\Omega$ to have a reasonable current to measure.
+\item [IO Expanders] Verify correct I2C address of devices (should be 0x22)
+\item [Position Detect Switch] Verify switch trips when placed in lower position in box, confirm switch does not trip when in upper position 
+%\item [Sense EN] Disable \texttt{SENSE\_EN} line, confirm \texttt{3V3\_SENSE} is shutdown. Force enable outputs, confirm power is present at output. 
+\end{description}
+
+
+
+{\Large \textbf{Measurements:}}\\[5pt]
+\begin{description}
+%\item [EEPROM] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Bus Voltage Measurement] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [IO Expanders] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Position Detect Switch] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+%\item [Sense EN] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+\vfill
+
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]

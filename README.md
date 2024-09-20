@@ -29,9 +29,30 @@ Scripts and results from the testing process and development process. Contains m
 ## Overview
 * **Type:** Data Logger
 * **Interfaces:** I2C, SDI-12, Analog, Digital[^1] 
+* **Daughterboards:**
+	* [Talon-I2C](https://github.com/GEMS-sensing/Talon-I2C)
+	* [Talon-SDI12](https://github.com/GEMS-sensing/Talon-SDI12)
+	* [Talon-Auxiliary](https://github.com/GEMS-sensing/Talon-Auxiliary)
+	* [Gonk](https://github.com/GEMS-sensing/Project-Gonk)
 
 [^1]: Dependent on Talon configuration]
 
 ![Assembled logger photo on table](Documentation/images/Logger_v3.jpg)
 
-![Rendered image of completed logger assembly](Documentation/images/render.png)
+![Rendered image of completed logger assembly](Documentation/images/Render.png)
+
+## Testing
+Testing for the system was validated using the extensive [Flight Test](Testing/Report/TestingReport-Flight.pdf) protocol 
+
+## Firmware Operation
+
+#### Backhaul Operation
+![Flowchart of backhaul operation for Flight firmware](Documentation/FlightBackhaulFlowchart_v1.png)
+
+#### Memory Usage
+![Memory diagram of Flight firmware/hardware interface](Documentation/FlightMemoryDiagram.png)
+
+![Diagram of FRAM memory usage by Flight firmware](Documentation/FlightFRAMMemoryStructure.png)
+
+#### Message Types
+![Description of message types used by Flight firmware](Documentation/FlightMessageTypes.png)

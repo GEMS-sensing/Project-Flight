@@ -1,0 +1,93 @@
+\documentclass[10pt,letterpaper,titlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem,lipsum}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{diagbox}
+\usepackage{graphicx}
+%\usepackage{tablefootnote}
+%\usepackage{tabularx}
+\geometry{letterpaper, portrait, margin=1in}
+\author{Bobby Schulz}
+\title{Project Flight Hardware Evaluation }
+
+%\hyphenpsenalty 10000
+\sloppy
+
+
+
+\begin{document}
+%\begin{titlepage}
+%%\maketitle
+%
+%
+%\end{titlepage}
+\begin{titlepage}
+\renewcommand*{\thepage}{Title}
+   \begin{center}
+       \vspace*{1cm}
+
+       {\Huge \textbf{Project Flight}}
+
+       \vspace{0.5cm}
+        {\Large Hardware Evaluation}
+            
+       \vspace{1.5cm}
+
+       {\large \textbf{Bobby Schulz}}
+
+       \vfill
+            
+      
+            
+       \vspace{0.8cm}
+     
+       \includegraphics[width=0.4\textwidth]{GEMS-logo2d}\\
+       \vspace{5cm}
+		{\large \textit{You wanna tempt the wrath of the whatever from high atop the thing?}}\\[10pt]
+		\rule{8cm}{0.15mm}\\[10pt]
+		{\large \textit{It is better to be lucky. But I would rather be exact. Then when luck comes, you are ready.}}\\
+       \vspace{2.4cm}
+       \today
+            
+   \end{center}
+\end{titlepage}
+
+\tableofcontents
+\pagebreak
+
+
+\chapter{Kestrel Tests}
+\section{Sensor Tests}
+\input{Kestrel-SensorTests.tex}
+
+\section{Power Tests}
+\input{Kestrel-PowerTests.tex}
+
+\section{Talon Interface Tests}
+\input{Kestrel-TalonInterface.tex}
+
+\section{General Tests}
+\input{Kestrel-GeneralTests.tex}
+
+\chapter{Aux Talon Tests}
+\input{Talon-Aux.tex}
+
+\chapter{I2C Talon Tests}
+\input{Talon-I2C.tex}
+
+\chapter{SDI-12 Talon Tests}
+\input{Talon-SDI12.tex}
+
+\chapter{Gonk Tests}
+\input{Gonk.tex}
+
+\chapter{Addendum: Replacement IO Expander Tests}
+\input{Appendix_IOExp.tex}
+
+\chapter{Addendum: Startup Sequence Tests}
+\input{Appendix_Startup.tex}
+\end{document}

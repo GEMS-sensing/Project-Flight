@@ -1,0 +1,239 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Talon Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
+\setlength\parindent{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Talon Basic Interface %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\Huge Test Name: \textbf{I2C Talon - Basic Reading}}\\[20pt]
+{\Large DUT: \textbf{I2C Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\
+\textbf{Haar Primal v}\rule{1cm}{0.15mm} \\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Connect a full set of conflicting address sensors to the Talon (use four Haar units) and perform the following operations. Make the connection using \textbf{1m cable}.
+
+Use fast mode I2C (400kHz)
+
+{\large Actions:}
+\begin{itemize}
+\item Toggle system to internal I2C bus
+\item Read addresses on internal bus, confirm isolation
+\item Turn off all data lines for external ports
+\item Toggle system to external I2C bus
+\begin{description}
+\item [Case A] Leave power on to all ports, toggle data enable line for each port so only one is enabled at a given time 
+\item [Case B] Leave data enable lines high for each port, toggle power enable for each port so only one is enabled at a given time
+\end{description}
+\item Read data, confirm no fault
+\item Measure voltage on disabled ports, confirm cross talk is less than 50mV
+\end{itemize}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item [Case A] Cross talk, max \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Case B] Cross talk, max \rule{1.5cm}{0.15mm} mV \hspace{0.5cm} \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Talon Bus Interface %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{I2C Talon - Bus Reading}}\\[20pt]
+{\Large DUT: \textbf{I2C Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\
+\textbf{Haar Primal v}\rule{1cm}{0.15mm}\\
+\textbf{Hedorah NDIR v}\rule{1cm}{0.15mm}\\
+\textbf{Hedorah v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Connect a set of sensors and perform the following operations. Make the connection using \textbf{1m cable}.
+
+Use fast mode I2C (400kHz)
+
+{\large Sensor Set:}
+\begin{itemize}
+\item Haar
+\item Haar, Alt Address
+\item Hedorah-NDIR
+\item Hedorah
+\end{itemize}
+
+{\large Actions: }
+\begin{itemize}
+\item Connect to all ports
+\item Read data from each device, confirm no fault, verify waveform on output side 
+\item Measure rise and fall time on bus at sensor (far end of cable)
+\end{itemize}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item [Rise Time] \rule{1cm}{0.15mm} $\mu s$
+\item [Fall Time] \rule{1cm}{0.15mm} $\mu s$
+\item [Freq] \rule{1.5cm}{0.15mm} kHz
+\end{description}
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Talon Bus Fault Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{I2C Talon - Bus Fault}}\\[20pt]
+{\Large DUT: \textbf{I2C Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\
+\textbf{Haar Primal v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Connect a Haar sensor to an open and enabled port. Take another port on the bus and disable data to it, then apply the following conditions of faults and attempt to communicate with the Haar sensor for each one to ensure no faults occur. 
+
+{\large Conditions: }
+\begin{description}
+\item SDA shorted to 3.3V
+\item SCL shorted to 3.3V
+\item SDA shorted to GND
+\item SCL shorted to GND
+\end{description}
+
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% GENERAL TALON TESTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Current Limit Testing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{I2C Talon - Current Limit Fault}}\\[20pt]
+{\Large DUT: \textbf{I2C Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Apply a given load to the output and perform the set of actions and ensure all stages are passed 
+
+{\large Load Condition:}
+\begin{itemize}
+\item Excess Load - 1.25x max load (0.625A, approximately $5\Omega$ for 3.3V bus)
+\item Dead short - $<0.1\Omega$
+\end{itemize}
+
+{\large Actions: }
+\begin{itemize}
+\item Apply load
+\begin{description}
+\item [Case A] Connect load to disabled port, enable port 
+\item [Case B] Enable port, connect load
+\end{description}
+\item Measure time to trip
+\item Confirm output disconnection 
+\item Remove load
+\item Confirm output latch
+\item Confirm fault flag
+\end{itemize}
+
+\textbf{Repeat for fault present at enable and fault applied to line}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item [Excess Load, Case A] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Excess Load, Case B] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Dead Short, Case A] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item [Dead Short, Case B] Time to Trip \rule{1.5cm}{0.15mm} $\mu \text{s}$ \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Current Limit Testing Max %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{I2C Talon - Current Limit Max}}\\[20pt]
+{\Large DUT: \textbf{I2C Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm}\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+Apply the max hold current (0.5A) to a single output port and confirm the system does not trip and still functions correctly 
+
+Connect a load resistor (3.3V - $6.8\Omega$, 12V - $27\Omega$) to the port output and enable output, confirm stable output, run for 10 minutes and confirm no thermal overload in that time. 
+
+\vfill
+{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I2C Talon General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{I2C Talon - General Tests}}\\[20pt]
+{\Large DUT: \textbf{I2C Talon v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[5pt]
+\textbf{Kestrel v}\rule{1cm}{0.15mm} \\[40pt]
+{\Large Conditions: } \\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Talon to Kestrel, all power and communication will be done through this connection. Enable given port on Kestrel and make measurements using the Serial Demo interface. 
+
+\begin{description}
+\item [EEPROM] Write to EEPROM, toggle power 10 times, read from EEPROM and confirm data is correct 
+\item [Bus Voltage Measurement] Measure all bus voltages, confirm with DMM to be within 5\% of actual value. Apply load of about $1k\Omega$ to have a reasonable current to measure.
+\item [IO Expanders] Verify correct I2C address of devices (should be 0x22)
+\item [Position Detect Switch] Verify switch trips when placed in lower position in box, confirm switch does not trip when in upper position 
+\item [Sense EN] Disable \texttt{SENSE\_EN} line, confirm \texttt{3V3\_SENSE} is shutdown. Force enable outputs, confirm power is present at output. 
+\end{description}
+
+
+
+{\Large \textbf{Measurements:}}\\[5pt]
+\begin{description}
+\item [EEPROM] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Bus Voltage Measurement] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [IO Expanders] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Position Detect Switch] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\item [Sense EN] -  \hfill Pass: \rule{1cm}{0.15mm} \hspace{0.5cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+
+\vfill
+
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]

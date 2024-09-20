@@ -1,0 +1,81 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\noindent
+{\Huge Test Name: \textbf{Kestrel - Startup}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect Kestrel to the following power supply combination, ensure that for each connection the logger powers up correctly (\texttt{3V3\_CORE} rail starts up immediately). This must be true both when power is applied with the switch in the ON state, and when power is applied and the switch is toggled into the ON state. 
+\\
+
+\noindent\makebox[\textwidth][c]{%
+\begin{minipage}{0.75\textwidth}
+%\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Test ID &Battery & USB & Solar & Charge Enable ($\overline{\text{CE}}$) \\
+\hline
+\hline
+%\toprule
+Alpha & Open & Active & Open & LOW \\
+Beta & Open & Active & Open & HIGH \\
+\hline
+Gamma & Active (nominal\footnote{Battery nominal Voltage = 3.7V}) & Open & Open & LOW \\
+Delta & Active (nominal) & Open & Open & HIGH \\
+\hline
+Epsilon & Active (cutoff\footnote{Battery cutoff Voltage = 2V}) & Active & Open & LOW \\ 
+Zeta & Active (cutoff) & Active & Open & HIGH\\ 
+\hline
+Eta & Active (cutoff) & Open & Active & LOW\\ 
+Theta & Active (cutoff) & Open & Active & HIGH \\ 
+\hline
+Iota & Open & Open & Active & LOW \\ 
+Kappa & Open & Open & Active & HIGH \\ 
+\hline
+Lambda & Open & Active & Active (cutoff\footnote{Solar cutoff Voltage = 3V}) & LOW \\ 
+Mu & Open & Active & Active (cutoff) & HIGH\\ 
+\hline
+%\bottomrule
+
+\end{tabular}
+%\end{center}
+\end{minipage}}
+
+%\\[5pt]
+\pagebreak
+{\Large Measurements: }\\
+\begin{enumerate}
+\item[Alpha] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[Beta] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[Gamma] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[Delta] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[Epsilon] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[Zeta] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[Eta] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[Theta] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[Iota] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[Kappa] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[Lambda] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[Mu] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+%\item \textbf{PWR LED Period Good - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+%\item \textbf{WDT Period Good - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+%\item \textbf{WDT Quiet - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+%\item \textbf{IO Exp Interface - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+%\item \textbf{IO Exp Reset - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+%\item \textbf{IO Exp Interrupt - } \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{enumerate}
+
+%{\Large Meter Readings: }\\
+%\begin{itemize}
+%\item \textbf{PWR LED Period:} \rule{2cm}{0.15mm} s
+%\item \textbf{WDT Period:} \rule{2cm}{0.15mm} s
+%\end{itemize}
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]

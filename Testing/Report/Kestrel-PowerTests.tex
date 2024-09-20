@@ -1,0 +1,409 @@
+\setlength\parindent{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% USB %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
+{\Huge Test Name: \textbf{USB - Charging}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}}\\ \textbf{BQ25616} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect nominal voltage (3.7V) full capacity (1S3P) battery pack to the battery input on Kestrel. Use on board CSA to measure current in both USB and battery pack. In addition, measure battery current flow manually. 
+
+Test using the following USB inputs:
+\begin{itemize}
+\item USB 3.0 Port (Anker USB port, non-charging)
+\item Charging Pack (Anker iQ)
+\item Charging Block (Anker iQ)
+\end{itemize}
+
+Confirm charging current is greater than 2A for all charging methods 
+\\[5pt]
+{\Large Measurements: }\\
+\textbf{USB 3.0 Port}
+\begin{itemize}
+\item \textbf{Voltage USB:} \rule{3cm}{0.15mm} V
+\item \textbf{Current USB:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\end{itemize}
+
+\textbf{Charging Pack}
+\begin{itemize}
+\item \textbf{Voltage USB:} \rule{3cm}{0.15mm} V
+\item \textbf{Current USB:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\end{itemize}
+
+\textbf{Charging Block}
+\begin{itemize}
+\item \textbf{Voltage USB:} \rule{3cm}{0.15mm} V
+\item \textbf{Current USB:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\end{itemize}
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Solar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+{\Huge Test Name: \textbf{Solar - Charging}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}}\\ \textbf{BQ25616} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect nominal voltage (3.7V) full capacity (1S3P) battery pack to the battery input on Kestrel. Use on board CSA to measure current in both solar and battery pack. In addition, measure battery current flow manually along with solar voltage and current manually to confirm. 
+
+Test using the following solar inputs:
+\begin{itemize}
+\item VSolar = 5.5V, ISolar = 1A (limit)
+\item VSolar = 6.5V, ISolar = 2A (limit)
+\item VSolar = 7.5V, ISolar = 2A (limit)
+\end{itemize}
+
+%\\[5pt]
+{\Large Measurements: }\\
+\textbf{VSolar = 5.5V}
+\begin{itemize}
+\item \textbf{Voltage Solar:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Solar:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\end{itemize}
+
+\textbf{VSolar = 6.5V}
+\begin{itemize}
+\item \textbf{Voltage Solar:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Solar:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\end{itemize}
+
+\textbf{VSolar = 7.5V}
+\begin{itemize}
+\item \textbf{Voltage Solar:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Solar:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\end{itemize}
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DC Input %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+{\Huge Test Name: \textbf{DC Input - Charging}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}}\\ \textbf{BQ25616} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect nominal voltage (3.7V) full capacity (1S3P) battery pack to the battery input on Kestrel. Use on board CSA to measure current in both DC input and battery pack. In addition, measure battery current flow manually along with solar voltage and current manually to confirm. 
+
+Test using the following solar inputs:
+\begin{itemize}
+\item DC Input = 12V, 0.5A (limit)
+\item DC Input = 12V, 1A (limit)
+\end{itemize}
+
+%\\[5pt]
+{\Large Measurements: }\\
+\textbf{DC Input = 12V, 0.5A limit}
+\begin{itemize}
+\item \textbf{Voltage DC:} \rule{3cm}{0.15mm} V
+\item \textbf{Current DC:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\end{itemize}
+
+\textbf{DC Input = 12V, 1A limit}
+\begin{itemize}
+\item \textbf{Voltage DC:} \rule{3cm}{0.15mm} V
+\item \textbf{Current DC:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\end{itemize}
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Voltage Dropout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+{\Huge Test Name: \textbf{Battery Dropout}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}}\\ \textbf{BQ25616} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect a DC power supply to the battery input of Kestrel with a current limit set to 2A or greater. Proceed with described procedure. 
+
+Start the voltage at 3.7V, enable the output of the power supply. Step the voltage down by 0.1V increments, waiting 1 second between each step. Continue this process until the bulk voltage cuts off and record this minimum voltage input. 
+
+\begin{itemize}
+\item Set power supply voltage to 3.7V
+\item Enable power supply
+\item Step voltage down in 0.1V increments - waiting at least 1 second between steps
+\item Continue until bulk voltage cuts off
+\item Record cutoff voltage
+\item Set power supply voltage to 2V
+\item Increase voltage in 0.1V increments - waiting at least 1 second between steps
+\item Continue until bulk voltage starts up ($\geq 3.5 \text{V}$)
+\item Record startup voltage
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Cutoff Voltage:} \rule{3cm}{0.15mm} V
+\item \textbf{Startup Voltage:} \rule{3cm}{0.15mm} V
+\end{itemize}
+
+
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Therm Overload  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+{\Huge Test Name: \textbf{Thermal Overload - \break Charging}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}}\\ \textbf{BQ25616} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect nominal voltage (3.7V) full capacity (1S3P) battery pack to the battery input on Kestrel. Use on board CSA to measure current in both DC input and battery pack. In addition, measure battery current flow manually along with solar voltage and current manually to confirm. Place a thermocouple on the bottom of the logger board underneath the charger thermal plane (approximately 2cm in and 3.5cm up from the south-east corner of the board as referenced in the CAD drawings). Connect this with thermal paste and secure in place. Place the logger inside of the standard logger box with all openings sealed appropriately, route the DC connection and thermocouple through the solar cable gland opening in the box and seal as well as possible with butyl rubber to mimic a sealed environment. 
+
+Place the entire box in an oven heated to 40\textdegree C and wait for the thermocouple to read match this temperature. At this point begin charging at 12V with a 2A current limit. Let this charging proceed for 1 hour and measure temperature, efficiency and operation through out the process at 15 minute intervals. Ensure the device does not enter thermal shutdown during the process. 
+
+Ideally, all elements of the system should remain less 85\textdegree C, but internal box temperature \textbf{must} remain less than 85\textdegree C and the thermocouple temperature must remain less than 125\textdegree C
+\\[5pt]
+{\Large Measurements: }\\
+{\large \textbf{Time = 0 min}}
+\begin{itemize}
+\item \textbf{Voltage DC:} \rule{3cm}{0.15mm} V
+\item \textbf{Current DC:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\item \textbf{Thermocouple Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\item \textbf{Internal Box Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\item \textbf{Oven Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\end{itemize}
+
+{\large \textbf{Time = 15 min}}
+\begin{itemize}
+\item \textbf{Voltage DC:} \rule{3cm}{0.15mm} V
+\item \textbf{Current DC:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\item \textbf{Thermocouple Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\item \textbf{Internal Box Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\item \textbf{Oven Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\end{itemize}
+
+{\large \textbf{Time = 30 min}}
+\begin{itemize}
+\item \textbf{Voltage DC:} \rule{3cm}{0.15mm} V
+\item \textbf{Current DC:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\item \textbf{Thermocouple Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\item \textbf{Internal Box Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\item \textbf{Oven Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\end{itemize}
+
+{\large \textbf{Time = 45 min}}
+\begin{itemize}
+\item \textbf{Voltage DC:} \rule{3cm}{0.15mm} V
+\item \textbf{Current DC:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\item \textbf{Thermocouple Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\item \textbf{Internal Box Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\item \textbf{Oven Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\end{itemize}
+
+{\large \textbf{Time = 60 min}}
+\begin{itemize}
+\item \textbf{Voltage DC:} \rule{3cm}{0.15mm} V
+\item \textbf{Current DC:} \rule{3cm}{0.15mm} A
+\item \textbf{Voltage Battery:} \rule{3cm}{0.15mm} V
+\item \textbf{Current Battery:} \rule{3cm}{0.15mm} A
+\item \textbf{Charger Efficiency:} \rule{3cm}{0.15mm} \%
+\item \textbf{Thermocouple Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\item \textbf{Internal Box Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\item \textbf{Oven Temperature:} \rule{2cm}{0.15mm} \textdegree C
+\end{itemize}
+
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Backup Battery Test %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+{\Huge Test Name: \textbf{Backup Battery}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}}\\ \textbf{BQ25616} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+
+{\Large Procedure: }\\
+This test requires the removal of the ORing (\texttt{D4} on Kestrel v1.4) and series diode (\texttt{D14} on Kestrel v1.4) in various configurations. Then applying a simulated (DC power supply) backup battery voltage to the rail to measure the current draw. In addition, for some tests the system will need to be initialized and placed into sleep mode.
+
+For each test, the same set of data will be measured. This consists of: Battery current with external power enabled (but system in sleep mode), battery current with external power disabled. 
+
+For each test, remove the appropriate components and apply a battery backup voltage (3.1V) to the specified voltage rail (\textbf{with backup battery removed}) with a DMM in series to measure the current draw. For the final test, replace all components and attach a discharged battery (again with DMM in series) to measure the charge current. 
+
+Connect power supply to Kestrel main battery at 3.7V
+
+Take Kestrel with \textbf{backup battery removed} and test for the following:
+
+\begin{description}
+\item OR and Series Removed (GPS Current):
+\begin{itemize}
+\item Apply 3.1V from a power supply to the \texttt{BCKP\_GPS} rail, measure current when device in shutdown 
+\item Repeat previous test with main system battery disconnected 
+\end{itemize}
+
+\item OR and Series Removed (RTC Current):
+\begin{itemize}
+\item Apply 3.1V from a power supply to the \texttt{BCKP\_RTC} rail, measure current when device in shutdown 
+\item Repeat previous test with main system battery disconnected 
+\end{itemize}
+
+\item Series Removed (Combined Current):
+\begin{itemize}
+\item Apply 3.1V from a power supply to the \texttt{BCKP\_GPS} rail, measure current when device in shutdown 
+\item Repeat previous test with main system battery disconnected 
+\end{itemize}
+
+\item Short the backup battery terminals and measure the max current flow 
+\item Connect discharged battery to backup battery terminals and measure the current flow
+
+\end{description}
+
+%\\[5pt]
+{\Large Measurements: }\\
+\textbf{DC Input = 12V, 0.5A limit}
+\begin{description}
+
+\item[GPS Current]\mbox{}\\[-1.5\baselineskip]
+
+\begin{itemize}
+\item \textbf{Battery Current, with ext bat:} \rule{3cm}{0.15mm} $\mu A$
+\item \textbf{Battery Current, no ext bat:} \rule{3cm}{0.15mm} $\mu A$
+\end{itemize}
+
+\item[RTC Current]\mbox{}\\[-1.5\baselineskip]
+
+\begin{itemize}
+\item \textbf{Battery Current, with ext bat:} \rule{3cm}{0.15mm} $\mu A$
+\item \textbf{Battery Current, no ext bat:} \rule{3cm}{0.15mm} $\mu A$
+\end{itemize}
+
+\item[Combined Current]\mbox{}\\[-1.5\baselineskip]
+
+\begin{itemize}
+\item \textbf{Battery Current, with ext bat:} \rule{3cm}{0.15mm} $\mu A$
+\item \textbf{Battery Current, no ext bat:} \rule{3cm}{0.15mm} $\mu A$
+\end{itemize}
+
+\item[Battery Charge Current]
+\item \textbf{Short Circuit Current:} \rule{3cm}{0.15mm} $\mu A$
+\item \textbf{Battery Starting Voltage:} \rule{3cm}{0.15mm} V
+\item \textbf{Battery Charge Current:} \rule{3cm}{0.15mm} $\mu A$
+\end{description}
+
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Bulk Rail Switching %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+{\Huge Test Name: \textbf{Bulk Rail Switching}}\\[20pt]
+{\Large DUT: \textbf{Kestrel v}\rule{1cm}{0.15mm}}\\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Connect a DC power supply to the battery input of Kestrel with a current limit set to 2A or greater. Proceed with described procedure. 
+
+This test is to ensure the correct and error free switch over for the \texttt{3V3\_TALON} rail. 
+
+During switching, minimum voltage must not fall below 2.805V (15\% Error).
+
+
+Initial Load: 50mA ($68\Omega$)
+
+\begin{itemize}
+\item Apply load to an output port
+\item Enable the \texttt{3V3\_AUX\_EN} line to turn on high power output
+\item Enable output port to load
+\item Measure voltage at load using scope, set to measure min voltage
+\item Disable the \texttt{3V3\_AUX\_EN} line to switch the output to use the low power 3.3V rail
+\item Record minimum voltage
+\item Enable the \texttt{3V3\_AUX\_EN} line to switch the output to use the high power 3.3V rail
+\item Record minimum voltage
+\end{itemize}
+
+Repeat process with 125mA (125\% of max load, $27\Omega$)
+
+{\Large Measurements:}\\
+\textbf{Normal Load:}\\
+\begin{itemize}
+\item \textbf{Output Voltage (\texttt{3V3\_AUX\_EN} ON):} \rule{3cm}{0.15mm} V
+\item \textbf{Minimum Voltage During Switch (High $\rightarrow$ Low):} \rule{3cm}{0.15mm} V
+\item \textbf{Output Voltage (\texttt{3V3\_AUX\_EN} OFF):} \rule{3cm}{0.15mm} V
+\item \textbf{Minimum Voltage During Switch (Low $\rightarrow$ High):} \rule{3cm}{0.15mm} V
+\end{itemize}
+
+\textbf{Excess Load:}\\
+\begin{itemize}
+\item \textbf{Output Voltage (\texttt{3V3\_AUX\_EN} ON):} \rule{3cm}{0.15mm} V
+\item \textbf{Time To Trip:} \rule{3cm}{0.15mm} ms
+\end{itemize}
+
+
+
+%{\Large Result:}\\
+\vfill
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]

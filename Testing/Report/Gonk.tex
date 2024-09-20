@@ -1,0 +1,190 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Gonk Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
+\setlength\parindent{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Gonk Shutdown/Restart Testing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\Huge Test Name: \textbf{Gonk - Shutdown/Restart}}\\[20pt]
+{\Large DUT: \textbf{Gonk 1S3P - Smart v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+Take Gonk with batteries removed, connect power supply in place of battery (with $1\Omega$ in series with a $1000\mu \text{F}$ capacitor). 
+
+We will test to obtain: Minimum start up voltage, UVP voltage, OVP voltage, OCD current, and restart conditions
+
+{\Large \textbf{Start Up Voltage:}}
+\begin{itemize}
+\item Turn power supply off
+\item Connect DMM to output of Gonk
+\item Switch Gonk \textbf{ON} 
+\item Set power supply for 2.5V
+\item Turn on power supply
+\item Press \textbf{JUMP} button on Gonk
+\item Check DMM to verify if output is connected 
+\item Turn off power supply, increment voltage by 0.1V and turn power supply back on
+\item Repeat process until output is connected, record voltage 
+\end{itemize}
+
+{\Large \textbf{UVP Voltage:}}
+\begin{itemize}
+\item Turn power supply off
+\item Connect DMM to output of Gonk
+\item Switch Gonk \textbf{ON} 
+\item Set power supply for 3.7V
+\item Turn on power supply
+\item Press \textbf{JUMP} button on Gonk
+\item Reduce voltage by increments of 0.1V, delay at least 1 second between each step
+\item Continue reducing voltage until the output is disconnected, record this voltage 
+\end{itemize}
+
+{\Large \textbf{UVP Restart:}}
+\begin{itemize}
+\item Place the device into UVP mode (see UVP Voltage action items)
+\item Connect an additional power supply to the external port of Gonk
+\item Set voltage to 2.5V
+\item Set DMM to measure voltage on internal battery rail 
+\item Switch power supply on
+\item Check DMM to see if charge voltage is applied 
+\item Increment charge voltage by 0.1V, delaying at least 1 second between increments
+\item Repeat until charge voltage is connected to battery rail
+\item Record UVP restart voltage 
+\end{itemize}
+
+{\Large \textbf{OVP Voltage:}}
+\begin{itemize}
+\item Connect secondary power supply to input of Gonk
+\item Connect DMM to artificial Gonk battery input
+\item Switch Gonk \textbf{ON} 
+\item Set battery power supply for 3.7V
+\item Turn on power supply
+\item Set input power supply for 3.7V
+\item Turn on power supply
+\item Increase input voltage by increments of 50mV, delay at least 1 second between each step
+\item Continue increasing voltage until the input is disconnected disconnected from the battery, record this voltage 
+\end{itemize}
+
+{\Large \textbf{OCD Current:}}
+\begin{itemize}
+\item For this step, remove the series resistor to the power supply
+\item Connect DMM in series measuring current
+\item Set DMM for min/max mode
+\item Set battery power supply to 3.7V with a current limit max $>5 \text{A}$
+\item Connect load resistor
+\item Increase load current until output disconnects
+\item Record maximum current measured 
+\end{itemize}
+
+{\Large \textbf{OCD Restart:}}
+\begin{itemize}
+\item Place the device into OCD mode (see OCD Current action items)
+\item Remove load from output
+\item Leave battery power supply at 3.7V
+\item Test that output did \textbf{not} restore connection as a result of this
+\item Connect an additional power supply to the external port of Gonk
+\item Set voltage to 2.5V
+\item Set DMM to measure voltage on internal battery rail 
+\item Switch power supply on
+\item Check DMM to see if charge voltage is applied 
+\item Increment charge voltage by 0.1V, delaying at least 1 second between increments
+\item Repeat until charge voltage is connected to battery rail
+\item Record OCD restart voltage 
+\end{itemize}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item [Minimum Start Up Voltage] \rule{1.5cm}{0.15mm} V
+\item [UVP Voltage] \rule{1.5cm}{0.15mm} V
+\item [UVP Restart Voltage] \rule{1.5cm}{0.15mm} V
+\item [OVP Voltage] \rule{1.5cm}{0.15mm} V
+\item [OCD Current] \rule{1.5cm}{0.15mm} A
+\item [OCD Restart Voltage] \rule{1.5cm}{0.15mm} V
+\end{description}
+
+
+\vfill
+%{\Large Result:}\\
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Gonk General Tests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+{\Huge Test Name: \textbf{Gonk - General Tests}}\\[20pt]
+{\Large DUT: \textbf{Gonk 1S3P - Smart v}\rule{1cm}{0.15mm}} \\[10pt]
+{\Large Equipment Used: }\\[40pt]
+{\Large Conditions: }\\[40pt]
+{\Large Tester: }\\[10pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[5pt]
+Name: \rule{4cm}{0.15mm} \hfill Sign: \rule{4cm}{0.15mm}\\[15pt]
+{\Large Procedure: }\\
+
+{\large Current Measure:}
+\begin{itemize}
+\item Connect power supply in place 
+\item Place DMM in series to measure current ($\mu \text{A}$ mode)
+\item Set power supply to 3.7V
+\item Turn on power supply
+\item Press \textbf{JUMP} button
+\item Switch Gonk \textbf{ON}
+\item Measure and record (\textbf{mean}) quiescent current 
+\item Switch Gonk \textbf{OFF}
+\item Press and hold \textbf{SLEEP} button until power is reduced 
+\item Measure and record sleep current 
+\end{itemize}
+
+{\large Pass/Fail Tests:}
+\begin{itemize}
+\item Switch Test
+\begin{itemize}
+\item Place internal switch into \textbf{OFF} state
+\item Ensure output power is off
+\item Place external switch into \textbf{ON} state
+\item Ensure output power is on
+\end{itemize}
+\item External Switch Test
+\begin{itemize}
+\item Place external and internal switch in positions specified in Table \ref{tab:SwitchPos}
+\item Ensure specified output is true for each position combination
+\end{itemize}
+\item LED Output Configure
+\begin{itemize}
+\item Configure LED bar graph to display SoC only when button is pressed
+\item Switch output off (to confirm this works even when power is off)
+\item Press button, confirm graph is displayed
+\item Release button, confirm graph is removed
+\end{itemize}
+\end{itemize}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|}\hline
+\backslashbox{OB Pos}{Ext Pos}
+%Dummy
+&\textbf{ON}&\textbf{MID}&\textbf{OFF}\\ \hline
+\textbf{ON}&ON&ON&OFF\\ \hline
+\textbf{OFF}&ON&OFF&OFF\\ \hline
+\end{tabular}
+\caption{Switch positions and expected output}
+\label{tab:SwitchPos}
+\end{table}
+
+{\Large \textbf{Measurements:}}
+\begin{description}
+\item [Quiescent Current] \rule{1.5cm}{0.15mm} $\mu \text{A}$
+\item [Sleep Current] \rule{1.5cm}{0.15mm} $\mu \text{A}$
+\end{description}
+
+
+\vfill
+{\Large Result:}\\
+\begin{description}
+\item[Switch Test] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[External Switch Test] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\item[LED Bar Graph Output] \hfill Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}
+\end{description}
+{\large Pass: \rule{1cm}{0.15mm} \hspace{1cm} Fail: \rule{1cm}{0.15mm}} \hfill Initial: \rule{2cm}{0.15mm} \hspace{1cm} Date: \rule{0.5cm}{0.15mm}/\rule{0.5cm}{0.15mm}/\rule{1cm}{0.15mm}\\[5pt]
+
